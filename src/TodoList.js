@@ -1,12 +1,12 @@
 import React from "react";
 
-function TodoList() {
+function TodoList(props) {
   return (
     <div>
       <ul class="list-group">
-        <li class="list-group-item">My first todo task</li>
-        <li class="list-group-item">Watch Game of thrones next episode</li>
-        <li class="list-group-item">Practice react todo application</li>
+        {props.todos.map(todo => {
+          return <li class="list-group-item">{todo}</li>;
+        })}
       </ul>
     </div>
   );
