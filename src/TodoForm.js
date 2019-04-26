@@ -1,16 +1,34 @@
 import React from "react";
 
 class TodoForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      input: ""
+    };
+  }
+
+  handleChange(event) {
+    this.setState({ input: event.target.value });
+  }
+
   render() {
     return (
-      <div class="form-group">
+      <div className="form-group">
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           placeholder="Add todo"
           aria-describedby="helpId"
+          value={this.state.input}
+          onChange={this.handleChange.bind(this)}
         />
-        <button type="button" name="" id="" class="btn btn-primary btn-block">
+        <button
+          type="button"
+          name=""
+          id=""
+          className="btn btn-primary btn-block"
+        >
           Add Todo
         </button>
       </div>
