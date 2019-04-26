@@ -18,12 +18,19 @@ class App extends React.Component {
   }
 
   addTodo(input) {
-    this.setState({ todos: [...this.state.todos, input] });
+    axios
+      .post("http://localhost:8080/todos", { title: input })
+      .then(response => {
+        this.setState({ todos: [...this.state.todos, response.data] });
+      });
   }
 
-  handleDelete(todo) {
-    this.setState({
-      todos: this.state.todos.filter(t => t !== todo)
+  handleDelete(id) {
+    axios.delete("http://localhost:8080/todos/" + id).then(response => {
+      console.log(response);
+      this.setState({
+        todos: this.state.todos.filter(t => t.id !== response.data.id)
+      });
     });
   }
 
