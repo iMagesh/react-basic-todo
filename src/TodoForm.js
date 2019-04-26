@@ -25,9 +25,8 @@ class TodoForm extends React.Component {
         />
         <button
           type="button"
-          name=""
-          id=""
           className="btn btn-primary btn-block"
+          onClick={this.props.handleSubmit.bind(this, this.state.input)}
         >
           Add Todo
         </button>
