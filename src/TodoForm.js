@@ -12,6 +12,11 @@ class TodoForm extends React.Component {
     this.setState({ input: event.target.value });
   }
 
+  handleSubmit(event) {
+    this.props.addTodo(this.state.input);
+    this.setState({ input: "" });
+  }
+
   render() {
     return (
       <div className="form-group">
@@ -26,7 +31,7 @@ class TodoForm extends React.Component {
         <button
           type="button"
           className="btn btn-primary btn-block"
-          onClick={this.props.handleSubmit.bind(this, this.state.input)}
+          onClick={this.handleSubmit.bind(this)}
         >
           Add Todo
         </button>

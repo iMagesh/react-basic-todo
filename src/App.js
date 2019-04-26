@@ -6,12 +6,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: ["sdf"]
+      todos: []
     };
   }
 
-  handleSubmit(input) {
-    console.log(input);
+  addTodo(input) {
     this.setState({ todos: [...this.state.todos, input] });
   }
 
@@ -19,7 +18,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h2>My Todo App</h2>
-        <TodoForm handleSubmit={this.handleSubmit.bind(this)} />
+        <TodoForm addTodo={this.addTodo.bind(this)} />
         <TodoList todos={this.state.todos} />
       </div>
     );
